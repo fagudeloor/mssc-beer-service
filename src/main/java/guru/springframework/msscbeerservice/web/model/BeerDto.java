@@ -1,6 +1,9 @@
 package guru.springframework.msscbeerservice.web.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
@@ -11,6 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -22,6 +26,7 @@ public class BeerDto {
 
         static final long serialVersionUID = -5815566940065181210L;
 
+//        @JsonProperty("beerId")
         @Null
         private UUID id;
 
@@ -43,7 +48,7 @@ public class BeerDto {
         private BeerStyleEnum beerStyle;
 
         @NotNull
-        private Long upc;
+        private String upc;
 
         @JsonFormat(shape = JsonFormat.Shape.STRING)
         @Positive
@@ -51,4 +56,8 @@ public class BeerDto {
         private BigDecimal price;
 
         private Integer quantityOnHand;
+
+        @JsonSerialize(using = LocalDateSerializer.class)
+        @JsonDeserialize(using = LocalDeserializer.class)
+        private LocalDate myLocalDate;
 }

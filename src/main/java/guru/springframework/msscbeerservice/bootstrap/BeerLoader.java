@@ -1,6 +1,7 @@
 package guru.springframework.msscbeerservice.bootstrap;
 
 import guru.springframework.msscbeerservice.domain.Beer;
+import guru.springframework.msscbeerservice.repositories.BeerRepository;
 import guru.springframework.msscbeerservice.web.model.BeerStyleEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -16,14 +17,14 @@ public class BeerLoader implements CommandLineRunner {
     public static final String BEER_2_UPC = "0631234300019";
     public static final String BEER_3_UPC = "0083783375213";
 
-    //private final BeerRepository beerRepository;
+    private final BeerRepository beerRepository;
 
     @Override
     public void run(String... args) throws Exception {
 
-//        if(beerRepository.count() == 0 ) {
-//            loadBeerObjects();
-//        }
+        if(beerRepository.count() == 0 ) {
+            loadBeerObjects();
+        }
     }
 
     private void loadBeerObjects() {
@@ -54,8 +55,8 @@ public class BeerLoader implements CommandLineRunner {
                 .upc(BEER_3_UPC)
                 .build();
 
-//        beerRepository.save(b1);
-//        beerRepository.save(b2);
-//        beerRepository.save(b3);
+        beerRepository.save(b1);
+        beerRepository.save(b2);
+        beerRepository.save(b3);
     }
 }
