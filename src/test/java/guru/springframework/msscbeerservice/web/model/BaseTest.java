@@ -22,7 +22,7 @@ public class BaseTest {
                 .lastModifiedDate(OffsetDateTime.now())
                 .price(new BigDecimal(12.99))
                 .upc("1231244334")
-                .myLocalDate(LocalDate.now())
+//                .myLocalDate(LocalDate.now())
                 .build();
     }
 }

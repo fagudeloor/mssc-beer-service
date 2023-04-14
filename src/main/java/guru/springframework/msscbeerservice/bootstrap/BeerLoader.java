@@ -8,20 +8,21 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @RequiredArgsConstructor
-@Component
+//@Component
 public class BeerLoader implements CommandLineRunner {
 
     public static final String BEER_1_UPC = "0631234200036";
     public static final String BEER_2_UPC = "0631234300019";
     public static final String BEER_3_UPC = "0083783375213";
+    public static final UUID BEER_1_UUID = UUID.randomUUID();
 
     private final BeerRepository beerRepository;
 
     @Override
     public void run(String... args) throws Exception {
-
         if(beerRepository.count() == 0 ) {
             loadBeerObjects();
         }
