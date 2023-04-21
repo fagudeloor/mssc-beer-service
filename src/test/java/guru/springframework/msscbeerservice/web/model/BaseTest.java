@@ -1,10 +1,11 @@
 package guru.springframework.msscbeerservice.web.model;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import guru.sfg.brewery.model.BeerDto;
+import guru.sfg.brewery.model.BeerStyleEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
